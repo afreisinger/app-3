@@ -1,0 +1,23 @@
+name: Test Action
+on: [push]
+permissions:
+  contents: read
+  packages: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - uses: afreisinger/build-push-action@v1.2.0
+        with:
+          image-name: app-3
+          authors: 'Adrián Freisinger'
+          maintainers: 'Adrián Freisinger <afreisinger@gmail.com'
+          vendor: 'Adrián Freisinger'
+          docker-username: ${{ secrets.DOCKER_USERNAME }}
+          docker-pat: ${{ secrets.DOCKER_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          publish-dockerhub: true
+          publish-ghcr: true
