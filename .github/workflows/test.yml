@@ -10,7 +10,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - uses: afreisinger/build-push-action@v1.2.0
+      - name: Docker Build and Push Multi-Platform and Registry
+        uses: afreisinger/build-push-action@v1.3.0
         with:
           image-name: app-3
           authors: 'Adrián Freisinger'
